@@ -1,0 +1,360 @@
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../assets/fonts/Quicksand/Quicksand-SemiBold.ttf');
+    font-weight: 600;
+  } 
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../assets/fonts/Quicksand/Quicksand-Bold.ttf');
+    font-weight: bold;
+  } 
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../assets/fonts/Quicksand/Quicksand-Regular.ttf');
+    font-weight: normal;
+  } 
+  
+  html {
+    font-family: 'Quicksand', sans-serif;
+  }
+
+
+
+
+/* NAV */
+
+.bg-darksilverA {
+    background-color: rgba(100, 100, 100, .8);
+}
+.bg-darksilver {
+    background-color: rgba(100, 100, 100, 1);
+}
+
+.navbar-brand img {
+    height: 44px;
+    padding-left: 28px;
+}
+
+.nav-link-dark {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    color: white;
+    font-weight:600;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show, .nav-link:focus, .nav-link:hover {
+    color: silver;
+}
+
+.nav-item img {
+    height: 18px;
+}
+
+.pe-fix { /* En el código de Bootstrap originalmente venia la clase pe-3 que agrega un padding, probe con hasta pe-5 pero no quedaban bien centrado el nav principal, también probe con unas clases para acomodar en posiciones aboslutas, habia quedado bien en Desktop pero se rompia el menu Mobile asique lo resolvi asi medio aprox con un % */
+    padding-right: 3.9%;
+}
+
+.navbar-toggler  {
+    border: none;    
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0;
+}
+
+.offcanvas.offcanvas-end {
+    width: calc(100% / 3);
+}
+
+.offcanvas-header .btn-close {
+    margin: 0 0 0 8px;
+}
+
+@media (max-width: 767px) {
+    .fixed-md-top { /* La cree porque no encontre en la docu, habia una sticky-md-top pero era al reves me lo fijaba en Mobile y me lo hacia flotante en Desktop */
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    }
+
+    .offcanvas-social {
+    flex-direction: row;
+    justify-content: flex-start !important; /* tuve que usar !important porque Bootstrap ya lo estaba usando */
+    padding-top: 14px;
+    }
+    
+    .offcanvas-social-item {
+    margin-right: 16px;
+    }
+
+    .offcanvas-header {
+        justify-content: flex-end;
+    }
+
+    .navbar-brand img {
+        padding-left: 8px;
+    }
+}
+
+
+/* BANNERS */
+
+.bannerIndex, .banner {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    background-color: grey;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.20);
+    margin-bottom: 40px;
+    background-size: cover;
+    background-position: center center;
+  }
+  .bannerIndex h1, .banner h1 {
+    font-weight: 700;
+  }
+  .bannerIndex h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+  .banner h1 {
+    font-size: 2.6rem;
+  }
+
+  .bannerIndex {
+    font-size: 32px;
+    height: 620px;
+    padding-top: 300px;
+    background-image: url('../assets/images/home.jpg')
+  }
+
+  .banner {
+    font-size: 28px;
+    height: 440px;
+    padding-top: 200px;
+  }
+
+  .bannerTratamientos {
+    background-image: url('../assets/images/consultorio2.jpg')
+  }
+  .bannerVideos {
+    background-image: url('../assets/images/skin-cleanser-template-hero-img-bg.jpg')
+  }
+  .bannerUbicacion {
+    background-image: url('../assets/images/hall2.jpg')
+  }
+  .bannerContacto {
+    background-image: url('../assets/images/contacto2.jpg')
+  }
+
+
+  /* NAV FOOTER */
+
+  .navF ul{
+    display: inline-flex;
+
+  }
+
+  .nav-list {
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .nav-list li {
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .nav-linkF {
+    font-size: 16px;
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .socialF li {
+    display: inline-block;
+    margin: 0 5px;
+  }
+
+  /* */
+
+  .logoF {
+    text-align: center;
+    
+  }
+
+  .logoF img{
+    height: 32px;
+    
+  }
+
+  .nav-linkF {
+    font-size: 15px;
+}
+  
+  .nav-linkF {
+    color: rgb(80, 80, 80);
+  }
+  
+  .socialF {
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  .socialF img{
+    height: 20px;
+    vertical-align: middle;
+  }
+
+  .navF {
+    margin-top: 40px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .navF ul, .offcanvas-body ul { /* fix ol, ul Bootstrap */
+    padding-left: 0;
+  }
+
+  .navF .nav-list {
+    margin: 0 10%;
+  }
+
+  .navF p {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 12px;
+    font-weight:normal;
+    color: gray;
+  }
+
+  .navF p a {
+    color: gray;
+    text-decoration: none;
+  }
+
+
+  /* MAIN */
+
+  .gmaps iframe, .txt {
+    padding: 20px 10%;
+  }
+
+  .txt {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    font-weight:normal;
+    color: rgb(80, 80, 80);
+  }
+
+  main {
+    text-align: center;
+  }
+
+  main div {
+    padding: 20px 10%;
+  }
+
+  main section {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .containerV {    
+    margin: 20px 80px;
+  }
+
+  .containerT {    
+    margin: 20px 40px;
+  }
+
+  .containerT img {
+    width: 260px;
+    border-radius: 6px;
+  }
+
+  .containerI {    
+    width: 200px;
+    margin: 20px 40px;
+  }
+
+  .containerI img {
+    width: 60px;
+    border-radius: 15%;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: rgb(240, 240, 240);
+    
+  }
+
+  .containerT h3, .containerI h3, .containerI p {
+    color: rgb(80, 80, 80);
+  }
+  
+  .containerI p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    font-weight:normal;
+  }
+
+    /* FORM */
+
+  /*
+  form div {
+    display:inline-block;
+    text-align: left;
+    width: 100px;
+    vertical-align: top;
+  }
+   */
+ 
+   .formL {
+    text-align: left;
+    display: inline;
+    
+
+  }
+
+  .formM {
+    display:inline-block;
+    text-align: left;
+  }
+
+  form div li {
+    display:block;
+    margin-bottom: 6px;
+  }
+
+  /*
+  .formM ul {
+
+  }
+  */
+
+  .formC {
+
+    display:inline-block;
+  }
+
+  .boxM {
+    border: 2;
+    border-radius: 4px;
+    border-color: rgb(180, 180, 180);
+    padding: 2px;
+  }
+
+
+  /* BOTON WHATSAPP FLOTANTE */
+
+  .wsp {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    bottom: 52px;
+    right: 52px;
+  }
