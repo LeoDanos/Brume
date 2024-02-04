@@ -14,11 +14,9 @@
     font-weight: normal;
   } 
   
-  html {
+  html, h1, h2, h3, h4, h5, h6 {
     font-family: 'Quicksand', sans-serif;
   }
-
-
 
 
 /* NAV */
@@ -292,8 +290,12 @@
     
   }
 
-  .containerT h3, .containerI h3, .containerI p {
+  .containerT h5, .containerI h3, .containerI p {
     color: rgb(80, 80, 80);
+    font-weight: bold;
+  }
+  .containerT h5 {
+    font-size: 18px;
   }
   
   .containerI p {
