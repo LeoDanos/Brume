@@ -60,49 +60,35 @@
             <h1>Contacto</h1>
         </section>
 
-        <form>
-            <div class="formL">
-                
-                <div class="formM">
-                    <ul>
-                        <li><label for="nombre">Nombre:</label></li>
-                        <li><input type="text" name="nombre" placeholder="Tu nombre" class="boxM"></li>
-                    </ul>
-                    <ul>
-                        <li><label for="email">Email:</label></li>
-                        <li><input type="email" name="email" placeholder="@" class="boxM"></li>            
-                    </ul>
-                </div>
-                
-                <div class="formM">
-                    <ul>
-                        <li><label for="apellido">Apellido:</label></li>
-                        <li><input type="text" name="apellido" placeholder="Tu apellido" class="boxM"></li>
-                    </ul>
-                    <ul>           
-                        <li><label for="cel">Celular:</label></li>
-                        <li><input type="number" name="cel" placeholder="1144444444" class="boxM"></li>
-                    </ul>
-                </div>
-
+        <form class="row g-4">
+            
+            <div class="col-md-6 text-start">
+                <label for="inputText1" class="form-label fw-semibold">Nombre:</label>
+                <input type="text" class="form-control" id="inputText1" placeholder="Tu nombre">
             </div>
-        </form>
+            <div class="col-md-6 text-start">
+                <label for="inputText2" class="form-label fw-semibold">Apellido:</label>
+                <input type="text" class="form-control" id="inputText2" placeholder="Tu apellido">
+            </div>      
 
-        <form>
-            <div class="formL">
-                <div class="formC">
-                    <ul>
-                        <li><label for="consulta">Consulta:</label></li>
-                        <li><textarea name="consulta" cols="62" rows="6" placeholder="Detalle su consulta" class="boxM"></textarea></li>
-                    </ul>
-                </div>
+            <div class="col-md-6 text-start">
+              <label for="inputEmail4" class="form-label fw-semibold">Email:</label>
+              <input type="email" class="form-control" id="inputEmail4" placeholder="@">
+            </div>
+            <div class="col-md-6 text-start">
+              <label for="inputPhone4" class="form-label fw-semibold">Celular:</label>
+              <input type="number" class="form-control" id="inputPhone4" placeholder="114444444">
+            </div>
+            
+            <div class="mb-3 text-start">
+                <label for="formControlTextarea1" class="form-label fw-semibold">Consulta:</label>
+                <textarea class="form-control" id="formControlTextarea1" rows="3" placeholder="Detalle su consulta"></textarea>
             </div>
 
-            <ul>
-                <li><input type="submit" value="Enviar"></li>
-            </ul>
-
-        </form>
+            <div class="col-12">
+              <button type="submit" class="btn btn-secondary">Enviar</button>
+            </div>
+          </form>
         
 
     </main>

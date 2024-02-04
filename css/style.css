@@ -14,7 +14,7 @@
     font-weight: normal;
   } 
   
-  html, h1, h2, h3, h4, h5, h6 {
+  html, h1, h2, h3, h4, h5, h6, label {
     font-family: 'Quicksand', sans-serif;
   }
 
@@ -61,11 +61,12 @@
 }
 
 .offcanvas.offcanvas-end {
-    width: calc(100% / 3);
+    width: 158px; /* calc(100% / 3) */
 }
 
 .offcanvas-header .btn-close {
-    margin: 0 0 0 8px;
+    margin: 3px 0 0 10px;
+    padding-right: 22px;
 }
 
 @media (max-width: 767px) {
@@ -261,10 +262,6 @@
     text-align: center;
   }
 
-  main div {
-    padding: 20px 10%;
-  }
-
   main section {
     display: inline-block;
     vertical-align: top;
@@ -313,50 +310,21 @@
 
     /* FORM */
 
-  /*
-  form div {
-    display:inline-block;
-    text-align: left;
-    width: 100px;
-    vertical-align: top;
+    form {
+      padding: 20px 10%;
+    }
+
+    .form-control::placeholder {
+      color: silver;
+    }
+
+    .form-control:focus {
+      color: var(--bs-body-color);
+      background-color: var(--bs-body-bg);
+      border-color: silver;
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem rgba(100, 100, 100, .25);
   }
-   */
- 
-   .formL {
-    text-align: left;
-    display: inline;
-    
-
-  }
-
-  .formM {
-    display:inline-block;
-    text-align: left;
-  }
-
-  form div li {
-    display:block;
-    margin-bottom: 6px;
-  }
-
-  /*
-  .formM ul {
-
-  }
-  */
-
-  .formC {
-
-    display:inline-block;
-  }
-
-  .boxM {
-    border: 2;
-    border-radius: 4px;
-    border-color: rgb(180, 180, 180);
-    padding: 2px;
-  }
-
 
   /* BOTON WHATSAPP FLOTANTE */
 
