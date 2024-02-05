@@ -267,19 +267,7 @@
     vertical-align: top;
   }
 
-  .containerV {    
-    margin: 20px 80px;
-  }
-
-  .containerT {    
-    margin: 20px 40px;
-  }
-
-  .containerT img {
-    width: 260px;
-    border-radius: 6px;
-  }
-
+  /*Index*/
   .containerI {    
     width: 200px;
     margin: 20px 40px;
@@ -291,22 +279,48 @@
     margin-bottom: 10px;
     padding: 10px;
     background-color: rgb(240, 240, 240);
-    
   }
 
-  .containerT h5, .containerI h3, .containerI p {
-    color: rgb(80, 80, 80);
-    font-weight: bold;
-  }
-  .containerT h5 {
-    font-size: 18px;
-  }
-  
   .containerI p {
     font-family: 'Quicksand', sans-serif;
     font-size: 14px;
     font-weight:normal;
   }
+
+  /*Tratamientos*/
+  .containerT {    
+    /*margin: 20px 40px;*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 54px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10%;
+  }
+
+  .card-containerT {
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .card-containerT img {
+    width: 100%;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+
+  .card-containerT h5, .containerI h3, .containerI p {
+    color: rgb(80, 80, 80);
+    font-weight: bold;
+  }
+  .card-containerT h5 {
+    font-size: 18px;
+  }
+  
+  
 
     /* FORM */
 
@@ -325,6 +339,11 @@
       outline: 0;
       box-shadow: 0 0 0 0.25rem rgba(100, 100, 100, .25);
   }
+
+  form.row { /* el .row de bootstrap me agregaba margenes que sobresalian del sitio y ponian una barra de desplazamiento en X */
+    margin-right: 0;
+    margin-left: 0;
+}
 
   /* BOTON WHATSAPP FLOTANTE */
 
