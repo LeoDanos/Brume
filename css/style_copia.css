@@ -40,7 +40,7 @@
     font-weight:600;
 }
 
-.navbar-nav .nav-link.bctive, .navbar-nav .nav-link.show, .nav-link:focus, .nav-link:hover {
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show, .nav-link:focus, .nav-link:hover {
     color: silver;
 }
 
@@ -267,6 +267,7 @@
     vertical-align: top;
   }
 
+ 
   /*Index Flex*/
   .containerI {    
     display: flex;
@@ -308,128 +309,32 @@
   }
   
   /*Tratamientos Grid*/
-
-  .box {
-    
-    width: 100%;
-    height: 100%;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
   
-  
-  
-  .box div {
-    z-index: 3;
-    color: white;
-    width: 100%;
-    height: 100%;
-    padding: 10px;
+  .containerT {
     display: grid;
-    place-items: end start;
-    /* opacity: 0.5; */
-  }
-
-  .box div h5 {
-    margin-left: 15px;
-    text-shadow: black 1px 0 8px;
-  }
-  
-  .b1 {
-    grid-area: a1;
-  }
-  
-  .b2 {
-    grid-area: a2;
-  }
-  
-  .b3 {
-    grid-area: a3;
-  }
-  
-  .b4 {
-    grid-area: a4;
-  }
-  
-  .b5 {
-    grid-area: a5;
-  }
-  
-  .b6 {
-    grid-area: a6;
-  }
-
-  .b7 {
-    grid-area: a7;
-  }
-
-  .b8 {
-    grid-area: a8;
-  }
-
-  .b9 {
-    grid-area: a9;
-  }
-
-  .b10 {
-    grid-area: a10;
-  }
-  
-  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+    grid-auto-rows: minmax(260px, auto);
+    grid-auto-flow: dense;
+    gap: 40px;
     padding: 20px 10%;
-
-    display: grid;
-    grid-template-columns: repeat(4, 1frx);
-    grid-template-rows: repeat(3, 260px);
-    gap: 15px;
-    place-items: end center;
-    grid-template-areas:
-      'a1 a1 a2 a3'
-      'a4 a5 a8 a8'
-      'a6 a7 a9 a10';
   }
 
-  @media (max-width: 768px) {
-    .grid {
-    grid-template-columns: repeat(2, 1frx);
-    grid-template-rows: repeat(6, 260px);
-      grid-template-areas:
-        'a1 a1'
-        'a2 a3'
-        'a4 a5'
-        'a8 a8'
-        'a6 a7'
-        'a9 a10';
-    }
-    }
+  .card-containerT img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;  
+  }
 
-    @media (max-width: 576px) {
-      .grid {
-        grid-template-columns: repeat(1, 1frx);
-        grid-template-rows: repeat(10, 260px);
-          grid-template-areas:
-            'a1'
-            'a2'
-            'a3'
-            'a4'
-            'a5'
-            'a8'
-            'a6'
-            'a7'
-            'a9'
-            'a10';
-        }
-      }
+  .expand {
+    grid-column: span 2;
+  }
 
-    .box img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      position: absolute;
+  @media (max-width: 576px) {
+    .expand {
+      grid-column: span 1;
     }
+  }
+
 
     /* FORM */
 
