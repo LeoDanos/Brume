@@ -30,14 +30,14 @@
 
 .navbar-brand img {
     height: 44px;
-    padding-left: 28px;
+    padding-left: 14px;
 }
 
 .nav-link-dark {
     font-family: 'Quicksand', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     color: white;
-    font-weight:600;
+    font-weight:600;    
 }
 
 .navbar-nav .nav-link.bctive, .navbar-nav .nav-link.show, .nav-link:focus, .nav-link:hover {
@@ -49,7 +49,7 @@
 }
 
 .pe-fix { /* En el código de Bootstrap originalmente venia la clase pe-3 que agrega un padding, probe con hasta pe-5 pero no quedaban bien centrado el nav principal, también probe con unas clases para acomodar en posiciones aboslutas, habia quedado bien en Desktop pero se rompia el menu Mobile asique lo resolvi asi medio aprox con un % */
-    padding-right: 3.9%;
+    padding-right: 2.6%;
 }
 
 .navbar-toggler  {
@@ -68,6 +68,7 @@
     margin: 3px 0 0 10px;
     padding-right: 22px;
 }
+
 
 @media (max-width: 767px) {
     .fixed-md-top { /* La cree porque no encontre en la docu, habia una sticky-md-top pero era al reves me lo fijaba en Mobile y me lo hacia flotante en Desktop */
@@ -139,8 +140,8 @@
   .bannerTratamientos {
     background-image: url('../assets/images/consultorio2.jpg')
   }
-  .bannerVideos {
-    background-image: url('../assets/images/skin-cleanser-template-hero-img-bg.jpg')
+  .bannerProductos {
+    background-image: url('../assets/images/insumos2.jpg')
   }
   .bannerUbicacion {
     background-image: url('../assets/images/hall2.jpg')
@@ -168,10 +169,15 @@
     text-align: center;
   }
   
+  .nav-link {
+  display: inline;
+}
+
   .nav-linkF {
     font-size: 16px;
     text-decoration: none;
     font-family: 'Quicksand', sans-serif;
+
   }
   
   .socialF li {
@@ -205,7 +211,7 @@
   }
 
   .socialF img{
-    height: 20px;
+    height: 18px;
     vertical-align: middle;
   }
 
@@ -220,7 +226,8 @@
   }
 
   .navF .nav-list {
-    margin: 0 10%;
+    margin: 0 8%;
+    
   }
 
   .navF p {
@@ -251,16 +258,26 @@
     padding: 20px 10%;
   }
 
-  .txt {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 16px;
-    font-weight:normal;
-    color: rgb(80, 80, 80);
+  .gmaps iframe {
+    width: 1240px;
+    height: 600px;
+    max-width: 100%;
   }
 
   main {
     text-align: center;
   }
+
+  .txt {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    font-weight:normal;
+    color: rgb(80, 80, 80);
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+  }
+
 
   main section {
     display: inline-block;
@@ -268,11 +285,12 @@
   }
 
   /*Index Flex*/
+
   .containerI {    
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 120px;
+    gap: 40px 120px;
     justify-content: center;
     padding: 20px 10%;
   }
@@ -306,6 +324,19 @@
   .card-containerT h5 {
     font-size: 18px;
   }
+
+
+  .carousel-item .card {
+    display: inline-flex;
+    background-color:rgb(250, 250, 250);
+  }
+
+  .card-body
+
+  .carousel-control-next, .carousel-control-prev {
+    
+  }
+ 
   
   /*Tratamientos Grid*/
 
@@ -319,8 +350,6 @@
     justify-content: center;
     position: relative;
   }
-  
-  
   
   .box div {
     z-index: 3;
@@ -431,10 +460,43 @@
       position: absolute;
     }
 
+    /* Productos */
+
+    .labs {
+      display: grid;
+      grid-template-columns: repeat(2, 260px);
+      grid-auto-rows: minmax(40%, auto);
+      grid-auto-flow: dense;
+      justify-content: center;
+      gap: 40px 100px;
+      padding: 20px 25%;
+    }
+
+    @media (max-width: 768px) {
+      .labs {
+      grid-template-columns: auto;
+      }
+    }
+
+    .h-30 {
+      height: 30px;
+    }
+
+    .h-40 {
+      height: 40px;
+    }
+
+    .carousel-item img {
+      justify-content: center;
+    }
+
     /* FORM */
 
-    form {
+    .formulario {
       padding: 20px 10%;
+      max-width: 1400px;
+      display: inline-block;
+      justify-content: center;
     }
 
     .form-control::placeholder {
@@ -452,7 +514,11 @@
   form.row { /* el .row de bootstrap me agregaba margenes que sobresalian del sitio y ponian una barra de desplazamiento en X */
     margin-right: 0;
     margin-left: 0;
-}
+  }
+
+  textarea {
+    resize: none;
+  }
 
   /* BOTON WHATSAPP FLOTANTE */
 
@@ -462,4 +528,5 @@
     position: fixed;
     bottom: 52px;
     right: 52px;
+    z-index: 1;
   }
