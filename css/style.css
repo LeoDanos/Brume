@@ -30,7 +30,7 @@
 
 .navbar-brand img {
     height: 44px;
-    padding-left: 14px;
+    padding-left: 8px;
 }
 
 .nav-link-dark {
@@ -40,7 +40,7 @@
     font-weight:600;    
 }
 
-.navbar-nav .nav-link.bctive, .navbar-nav .nav-link.show, .nav-link:focus, .nav-link:hover {
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show, .nav-link:focus, .nav-link:hover {
     color: silver;
 }
 
@@ -70,7 +70,7 @@
 }
 
 
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
     .fixed-md-top { /* La cree porque no encontre en la docu, habia una sticky-md-top pero era al reves me lo fijaba en Mobile y me lo hacia flotante en Desktop */
     position: fixed;
     top: 0;
@@ -91,10 +91,6 @@
 
     .offcanvas-header {
         justify-content: flex-end;
-    }
-
-    .navbar-brand img {
-        padding-left: 8px;
     }
 }
 
@@ -171,13 +167,14 @@
   
   .nav-link {
   display: inline;
-}
+  }
 
-  .nav-linkF {
-    font-size: 16px;
+  
+  .nav-link .nav-linkF {
+    font-size: 15px;
     text-decoration: none;
     font-family: 'Quicksand', sans-serif;
-
+    color: rgb(80, 80, 80);
   }
   
   .socialF li {
@@ -197,13 +194,7 @@
     
   }
 
-  .nav-linkF {
-    font-size: 15px;
-}
   
-  .nav-linkF {
-    color: rgb(80, 80, 80);
-  }
   
   .socialF {
     text-align: center;
@@ -223,6 +214,7 @@
 
   .navF ul, .offcanvas-body ul { /* fix ol, ul Bootstrap */
     padding-left: 0;
+    padding-right: 0 !important; /* para pisar un Important de bootstrap que me generaba una barra de desplazamiento horizontal */
   }
 
   .navF .nav-list {
@@ -321,15 +313,21 @@
     color: rgb(100, 100, 100);
     font-weight: bold;
   }
+
+  .card img {
+      width: -webkit-fill-available;
+  }
+
   .card-containerT h5 {
     font-size: 18px;
   }
-
 
   .carousel-item .card {
     display: inline-flex;
     background-color:rgb(250, 250, 250);
   }
+
+  
 
 
   /*Tratamientos Grid*/
@@ -415,7 +413,7 @@
       'a6 a7 a9 a10';
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 767.98px) {
     .grid {
     grid-template-columns: repeat(2, 1frx);
     grid-template-rows: repeat(6, 260px);
@@ -466,7 +464,7 @@
       padding: 20px 25%;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 767.98px) {
       .labs {
       grid-template-columns: auto;
       }
