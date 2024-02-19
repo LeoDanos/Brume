@@ -403,7 +403,7 @@
     padding: 20px 10%;
 
     display: grid;
-    grid-template-columns: repeat(4, 1frx);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 260px);
     gap: 15px;
     place-items: end center;
@@ -415,7 +415,7 @@
 
   @media (max-width: 767.98px) {
     .grid {
-    grid-template-columns: repeat(2, 1frx);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(6, 260px);
       grid-template-areas:
         'a1 a1'
@@ -429,7 +429,7 @@
 
     @media (max-width: 576px) {
       .grid {
-        grid-template-columns: repeat(1, 1frx);
+        grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(10, 260px);
           grid-template-areas:
             'a1'
