@@ -48,8 +48,19 @@
     height: 18px;
 }
 
-.pe-fix { /* En el código de Bootstrap originalmente venia la clase pe-3 que agrega un padding, probe con hasta pe-5 pero no quedaban bien centrado el nav principal, también probe con unas clases para acomodar en posiciones aboslutas, habia quedado bien en Desktop pero se rompia el menu Mobile asique lo resolvi asi medio aprox con un % */
-    padding-right: 2.6%;
+@media (min-width: 768px) {
+.br-center { 
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .offcanvas-social { 
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translate(-100%, -50%);
+  }
 }
 
 .navbar-toggler  {
@@ -214,12 +225,21 @@
 
   .navF ul, .offcanvas-body ul { /* fix ol, ul Bootstrap */
     padding-left: 0;
-    padding-right: 0 !important; /* para pisar un Important de bootstrap que me generaba una barra de desplazamiento horizontal */
+  }
+
+  @media (min-width: 768px) and (max-width: 783px) {
+    .offcanvas-body ul {
+      padding-right: 0; 
+    }
+  }
+  @media (min-width: 767.98px) and (max-width: 768px) {
+    .offcanvas-body ul {
+      padding-right: 0 !important; /* para pisar un !Important de Bootstrap */
+    }
   }
 
   .navF .nav-list {
     margin: 0 8%;
-    
   }
 
   .navF p {
