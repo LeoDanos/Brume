@@ -1,6 +1,5 @@
 
-# ![Logo](https://leodanos.github.io/Brume/assets/images/brumeB.png#gh-dark-mode-only) 
-
+## <picture><source media="(prefers-color-scheme: dark)" srcset="https://brume.com.ar/wp-content/uploads/2024/02/brumeB_60.png"><source media="(prefers-color-scheme: light)" srcset="https://brume.com.ar/wp-content/uploads/2024/02/brumeN_60.png"><img alt="BRUMÉ"></picture>
 
 Este sitio web está desarrollado en **HTML**, **CSS** (SASS) y **Bootstrap**.
 
