@@ -1,0 +1,99 @@
+/* FOOTER */
+
+  .nav-list {
+    text-align: center;
+    margin: 0 auto;
+    & li {
+      display: inline-block;
+      padding: 10px;
+      text-align: center;
+    }
+  }
+  
+  .nav-link {
+    display: inline;
+  }
+  
+  .nav-link .nav-linkF {
+    font-size: 15px;
+    text-decoration: none;
+    font-family: $mainFont;
+    color: rgb(80, 80, 80);
+  }
+
+  .logoF {
+    text-align: center;
+    & img {
+      height: 32px;
+    }
+  }
+  
+  .socialF {
+    text-align: center;
+    padding-top: 10px;
+    & li {
+      display: inline-block;
+      margin: 0 5px;
+    }
+    & img {
+      height: 18px;
+      vertical-align: middle;
+    }
+  }
+
+  .navF {
+    margin-top: 40px;
+    text-align: center;
+    vertical-align: middle;
+    & ul {
+      display: inline-flex;
+    }
+    & p {
+      margin-top: 30px;
+      margin-bottom: 20px;
+      font-family: $mainFont;
+      font-size: 12px;
+      font-weight:normal;
+      color: gray;
+      & a {
+        color: gray;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .navF ul, .offcanvas-body ul { /* fix ol, ul Bootstrap */
+    padding-left: 0;
+  }
+
+  @media (min-width: 768px) and (max-width: 783px) {
+    .offcanvas-body ul {
+      padding-right: 0; 
+    }
+  }
+  @media (min-width: 767.98px) and (max-width: 768px) {
+    .offcanvas-body ul {
+      padding-right: 0 !important; /* para pisar un !Important de Bootstrap */
+    }
+  }
+
+  .navF .nav-list {
+    margin: 0 8%;
+  }
+
+  @media (max-width: 767px) {
+    .navF ul {
+      display: inherit;
+    }
+  }
+
+  /* BOTON WHATSAPP FLOTANTE */
+
+  .wsp {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    bottom: 52px;
+    right: 52px;
+    z-index: 1;
+  }

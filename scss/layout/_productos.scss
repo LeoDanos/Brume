@@ -1,0 +1,21 @@
+/* PRODUCTOS */
+
+.labs {
+    display: grid;
+    grid-template-columns: repeat(2, 260px);
+    grid-auto-rows: minmax(40%, auto);
+    grid-auto-flow: dense;
+    justify-content: center;
+    gap: 40px 100px;
+    padding: 20px 25%;
+  }
+
+  @media (max-width: 767.98px) {
+    .labs {
+    grid-template-columns: auto;
+    }
+  }
+
+  .carousel-item img {
+    justify-content: center;
+  }

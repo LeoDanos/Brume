@@ -1,0 +1,68 @@
+/* MAIN (INDEX) */ 
+
+main {
+    text-align: center;
+    & section {
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+
+  .txt {
+    font-family: $mainFont;
+    font-size: 16px;
+    font-weight:normal;
+    color: rgb(80, 80, 80);
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+  }
+
+/* INDEX */
+
+.containerI {    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px 120px;
+    justify-content: center;
+    padding: $brumePadding;
+  }
+
+  .card-containerI {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    & img {
+      width: 60px;
+      border-radius: 15%;
+      margin-bottom: 10px;
+      padding: 12px;
+      background-color: rgb(240, 240, 240);
+    }
+    & p {
+      font-family: $mainFont;
+      font-size: 14px;
+      font-weight:normal;
+    }
+  }
+
+  .card-containerT h5, .containerI h3, .containerI p {
+    color: $mainColor;
+    font-weight: bold;
+  }
+
+  .card-containerT h5 {
+    font-size: 18px;
+  }
+
+  .card img {
+      width: -webkit-fill-available;
+  }
+
+  .carousel-item .card {
+    display: inline-flex;
+    background-color:rgb(250, 250, 250);
+  }

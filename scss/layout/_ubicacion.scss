@@ -1,0 +1,12 @@
+  /* UBICACION */
+  
+  .txt {
+    padding: $brumePadding;
+  }
+
+  .gmaps iframe {
+    @extend .txt;
+    width: 1240px;
+    height: 600px;
+    max-width: 100%;
+  }
