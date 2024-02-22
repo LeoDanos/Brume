@@ -28,10 +28,10 @@ Soy un apasionado de los Videojuegos.
 
 Hice varios _Mods_ para el simulador **ARMA3** sobre la _Guera de Malvinas_ : Uniformes, Edificios e incluso Terrenos, están disponibles gratuitamente en mi [Steam Workshop](https://steamcommunity.com/id/loro_cdm/myworkshopfiles/?appid=107410)
 
-Mis primeros modelos 3D fueron con **AutoCAD**, bueno para diseñar muebles, no tanto para assets de juegos [[Sketchfab](https://sketchfab.com/leodanos)]. Para los terrenos aprendí a usar software de GIS (mapas de altura, formatos georeferenciados, etc. una locura) y para la ropa aprendí a usar **Marvelous Designer** que es un standard de la industria de VG [[Artstation](https://artstation.com/leodanos)], pero requiere de retoques en un soft de modelado, por esos motivos me inscribí en el curso de **Blender** de Coder. Me gustó tanto la dinámica de la cursada que ni bien lo terminé me anoté en el de Desarrollo de Videojuegos con **Unity (C#)** [[Itch.io](https://leodanos.itch.io/luxoo)], no es el Engine que prefería pero aprendí muchísimo, próximos objetivos: _ZBrush_ y _Unreal Engine_.
+Mis primeros modelos 3D fueron con **AutoCAD**, bueno para diseñar muebles, no tanto para assets de juegos [[Sketchfab](https://sketchfab.com/leodanos)]. Para los terrenos aprendí a usar software de GIS (mapas de altura, formatos georeferenciados, etc. una locura) y para la ropa aprendí a usar **Marvelous Designer** que es un standard de la industria de VG [[Artstation](https://artstation.com/leodanos)], pero requiere de retoques en un soft de modelado, por esos motivos me inscribí en el curso de **Blender** de Coder. Me gustó tanto la dinámica de la cursada que ni bien lo terminé me anoté en el de Desarrollo de Videojuegos con **Unity (C#)** [[Itch.io](https://leodanos.itch.io/luxoo)], no es el Engine que me interesaba aun asi aprendí muchísimo! Próximos objetivos: _ZBrush_ y _Unreal Engine_.
 
-Aun no decido a que dedicarme en la vida, hay una puja entre la pasión y el mercado laboral real?
-Mientras tanto soy un empleado administrativo, pero trato de seguir capacitandome.
+Aun no decido a que dedicarme en la vida, hay una puja entre la pasión y el mercado laboral real(?)
+Mientras tanto sigo siendo un empleado administrativo, pero siempre trato de mejorar y de seguir capacitandome.
 ## 🔗 Links
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/leonardodanos/)
 [![sketchfab](https://img.shields.io/badge/sketchfab-%231CAAD9.svg?&style=for-the-badge&logo=sketchfab&logoColor=white)](https://sketchfab.com/leodanos)
