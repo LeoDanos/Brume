@@ -62,3 +62,48 @@
       @include gridTratamientos (repeat(1, 1fr), repeat(10, 260px), 'a1' 'a2' 'a3' 'a4' 'a5' 'a8' 'a6' 'a7' 'a9' 'a10');
     }
   }
+
+  .box div {
+    background-color: rgba($color: #000000, $alpha: .20) ;
+    transition: 0.5s;
+    &:hover {
+      background-color: rgba($color: #000000, $alpha: 0) ;
+    }
+  }
+  
+  .aparatologia {
+  padding: $brumePadding;
+    display: grid;
+    gap: 15px;
+    place-items: center center;
+    @include gridTratamientos (repeat(2, 2fr), repeat(1, 2fr), 'a1 a2');
+  }
+
+  @media (max-width: 767.98px) {
+    .aparatologia {
+      @include gridTratamientos (repeat(1, 2fr), repeat(2, 2fr), 'a1' 'a2');
+    }
+  }
+
+  .auxiliar img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .fabricantes {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    & div {
+      height: 50%;     
+      position: relative;
+      & img {
+        position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      }
+    }
+  }
+  

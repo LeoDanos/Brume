@@ -19,3 +19,21 @@
   .carousel-item img {
     justify-content: center;
   }
+
+  .productos {
+    padding: $brumePadding;
+    
+    justify-content: center;
+    & img {
+      border-radius: 10px;
+      width: 80%;
+      margin-top: 20px;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .productos img {
+      width: 100%;
+    }
+  }
+  

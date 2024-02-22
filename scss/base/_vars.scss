@@ -1,10 +1,11 @@
 // COLORES
-$mainColor: rgb(80, 80, 80);
+$mainColor: rgb(70, 70, 70);
 $mainColorAlpha: rgba($mainColor,0.8);
 
 $brumeSilver: silver;
 
-$brumeGradient: radial-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.6));
+//$brumeGradient: radial-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.6));
+$brumeGradient: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.05));
 
 // FUENTES
 $mainFont: 'Quicksand', sans-serif;
