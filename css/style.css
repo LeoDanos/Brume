@@ -22,6 +22,10 @@
   font-family: "Quicksand", sans-serif;
 }
 
+html {
+  overflow-x: hidden !important;
+}
+
 /* UTILS */
 .h-10 {
   height: 10px;
@@ -411,6 +415,10 @@ textarea {
   }
 }
 /* TRATAMIENTOS */
+html {
+  overflow-x: hidden;
+}
+
 .box {
   width: 100%;
   height: 100%;
