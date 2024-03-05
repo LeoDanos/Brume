@@ -1,0 +1,24 @@
+/* THEME */
+
+// SELECT THEME: true or false
+
+$darkTheme: true;
+
+@if $darkTheme == true {
+    $backgroundMain: $mainDark;
+    $backgroundFooter: $footerDark;
+    .logoF img {filter: invert(0.9);}
+    .socialF img.tiktok {filter: invert(1);}
+    .card-containerI h3, .card-containerI p, .txt, form {color: rgb(180, 180, 180) !important;} 
+    .nav-linkF {color: rgb(160, 160, 160);}
+    .fabricantes img {filter: contrast(20%) saturate(1000%);}
+    .carousel-dark .carousel-control-next-icon, .carousel-dark .carousel-control-prev-icon {filter: invert(0) grayscale(100);}
+    } @else { 
+    $backgroundMain: $mainLight;
+    $backgroundFooter: $footerLight;
+}
+
+main { background-color: $backgroundMain; }
+body { background-color: $backgroundFooter; }
+
+

@@ -10,11 +10,7 @@
     padding: 20px 25%;
   }
 
-  @media (max-width: 767.98px) {
-    .labs {
-    grid-template-columns: auto;
-    }
-  }
+  //MQ1
 
   .carousel-item img {
     justify-content: center;
@@ -31,9 +27,5 @@
     }
   }
 
-  @media (max-width: 767.98px) {
-    .productos img {
-      width: 100%;
-    }
-  }
+  //MQ2
   

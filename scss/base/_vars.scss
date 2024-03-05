@@ -4,7 +4,12 @@ $mainColorAlpha: rgba($mainColor,0.8);
 
 $brumeSilver: silver;
 
-//$brumeGradient: radial-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.6));
+$mainLight: #fff;
+$footerLight: rgb(248, 248, 248);
+
+$mainDark: rgb(53, 53, 53);
+$footerDark: rgb(60, 60, 60);
+
 $brumeGradient: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.05));
 
 // FUENTES
@@ -12,3 +17,7 @@ $mainFont: 'Quicksand', sans-serif;
 
 // GENERAL
 $brumePadding: 20px 10%;
+
+// Default Theme 
+$backgroundMain: $mainLight;
+$backgroundFooter: $footerLight;

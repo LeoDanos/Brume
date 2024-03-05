@@ -38,11 +38,17 @@
     & img {
       height: 18px;
       vertical-align: middle;
+      margin: 1px;
+      transition: 0.1s;
+      &:hover{
+        height: 20px;
+        margin: 0;
+      }
     }
   }
 
   .navF {
-    margin-top: 40px;
+    padding-top: 40px;
     text-align: center;
     vertical-align: middle;
     & ul {
@@ -62,7 +68,7 @@
     }
   }
 
-  .navF ul, .offcanvas-body ul { /* fix ol, ul Bootstrap */
+  .navF ul, .offcanvas-body ul { // fix ol, ul Bootstrap
     padding-left: 0;
   }
 
@@ -73,7 +79,7 @@
   }
   @media (min-width: 767.98px) and (max-width: 768px) {
     .offcanvas-body ul {
-      padding-right: 0 !important; /* para pisar un !Important de Bootstrap */
+      padding-right: 0 !important; // para pisar un !Important de Bootstrap
     }
   }
 
@@ -96,4 +102,8 @@
     bottom: 52px;
     right: 52px;
     z-index: 1;
+    transition: 0.5s;
+      &:hover{
+        filter: drop-shadow(0px 0px 12px #4caf50) 
+      }
   }

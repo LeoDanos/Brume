@@ -1,0 +1,46 @@
+/* MEDIAQUERIES | Index */
+
+  //1
+  @media (max-width: 382px) {
+    .carousel-item .card {
+      min-height: 800px;
+    }
+  }
+
+/* MEDIAQUERIES | Tratamientos */
+
+  //1
+  @media (max-width: 767.98px) {
+    .grid {
+      @include gridTratamientos(repeat(2, 1fr), repeat(6, 260px), 'a1 a1' 'a2 a3' 'a4 a5' 'a8 a8' 'a6 a7' 'a9 a10');
+    }
+  }
+
+  @media (max-width: 576px) {
+    .grid {
+      @include gridTratamientos (repeat(1, 1fr), repeat(10, 260px), 'a1' 'a2' 'a3' 'a4' 'a5' 'a8' 'a6' 'a7' 'a9' 'a10');
+    }
+  }
+
+  //2
+  @media (max-width: 767.98px) {
+    .aparatologia {
+      @include gridTratamientos (repeat(1, 2fr), repeat(2, 2fr), 'a1' 'a2');
+    }
+  }
+
+/* MEDIAQUERIES | Productos */
+
+  //1
+    @media (max-width: 767.98px) {
+    .labs {
+    grid-template-columns: auto;
+    }
+  }
+
+  //2
+  @media (max-width: 767.98px) {
+    .productos img {
+      width: 100%;
+    }
+  }

@@ -25,6 +25,12 @@
 
 .nav-item img {
     height: 18px;
+    margin: 1px;
+      transition: 0.1s;
+      &:hover{
+        height: 20px;
+        margin: 0;
+      }
 }
 
 @media (min-width: 768px) {
@@ -50,7 +56,7 @@
 }
 
 .offcanvas.offcanvas-end {
-    width: 158px; /* calc(100% / 3) */
+    width: 158px; // calc(100% / 3)
 }
 
 .offcanvas-header .btn-close {
@@ -59,7 +65,7 @@
 }
 
 @media (max-width: 767.98px) {
-    .fixed-md-top { /* La cree porque no encontre en la docu, habia una sticky-md-top pero era al reves me lo fijaba en Mobile y me lo hacia flotante en Desktop */
+    .fixed-md-top { // La cree porque no encontre en la docu, habia una sticky-md-top pero era al reves me lo fijaba en Mobile y me lo hacia flotante en Desktop
     position: fixed;
     top: 0;
     right: 0;
@@ -69,7 +75,7 @@
 
     .offcanvas-social {
     flex-direction: row;
-    justify-content: flex-start !important; /* tuve que usar !important porque Bootstrap ya lo estaba usando */
+    justify-content: flex-start !important; // tuve que usar !important porque Bootstrap ya lo estaba usando */
     padding-top: 14px;
     }
     
