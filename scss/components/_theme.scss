@@ -2,7 +2,7 @@
 
 // SELECT THEME: true or false
 
-$darkTheme: true;
+$darkTheme: false;
 
 @if $darkTheme == true {
     $backgroundMain: $mainDark;
