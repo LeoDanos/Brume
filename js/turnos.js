@@ -119,7 +119,7 @@ function login(){
     } while (id)
 } 
 
-login()
+//login()
 //reserva()
 
 // RESERVA
