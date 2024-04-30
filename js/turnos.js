@@ -128,7 +128,7 @@ function reserva() {
     id = true
 
     do {
-    let serviceCategory = prompt ("Ingrese el N° de la profesional con la que desea atenderse:\n" + `1. ${Xoana.nameProfessional} (${Xoana.category}) \n2. ${Erica.nameProfessional} (${Erica.category})`)//.parseInt()
+    let serviceCategory = parseInt (prompt ("Ingrese el N° de la profesional con la que desea atenderse:\n" + `1. ${Xoana.nameProfessional} (${Xoana.category}) \n2. ${Erica.nameProfessional} (${Erica.category})`))
     let agendar = false
     let deposit = ""
 
@@ -140,16 +140,16 @@ function reserva() {
     else if (serviceCategory == 1) {
         do {
         
-        let service = prompt ("Ingrese el N° de tratamiento que desea realizar :\n" + `1. ${limpiezaFacialProfunda.nameService} (${limpiezaFacialProfunda.durationMinutes} min) | Valor: $${limpiezaFacialProfunda.price}.- \n2. ${dermaplaning.nameService} (${dermaplaning.durationMinutes} min) | Valor: $${dermaplaning.price}.- \n3. ${liftingPestanias.nameService} (${liftingPestanias.durationMinutes} min) | Valor: $${liftingPestanias.price}.-`)
+        let service = parseInt (prompt ("Ingrese el N° de tratamiento que desea realizar :\n" + `1. ${limpiezaFacialProfunda.nameService} (${limpiezaFacialProfunda.durationMinutes} min) | Valor: $${limpiezaFacialProfunda.price}.- \n2. ${dermaplaning.nameService} (${dermaplaning.durationMinutes} min) | Valor: $${dermaplaning.price}.- \n3. ${liftingPestanias.nameService} (${liftingPestanias.durationMinutes} min) | Valor: $${liftingPestanias.price}.-`))
             
             switch (service){
-                case "1":
+                case 1:
                     deposit = limpiezaFacialProfunda.deposit
                     break
-                case "2":
+                case 2:
                     deposit = dermaplaning.deposit
                     break
-                case "3":
+                case 3:
                     deposit = liftingPestanias.deposit
                     break
             }
@@ -172,13 +172,13 @@ function reserva() {
     else if (serviceCategory == 2) {
         do {
         
-            let service = prompt ("Ingrese el N° de tratamiento que desea realizar :\n" + `1. ${esmaltadoSemipermanente.nameService} (${esmaltadoSemipermanente.durationMinutes} min) | Valor: $${esmaltadoSemipermanente.price}.- \n2. ${kappingGel.nameService} (${kappingGel.durationMinutes} min) | Valor: $${kappingGel.price}.-`)
+            let service = parseInt (prompt ("Ingrese el N° de tratamiento que desea realizar :\n" + `1. ${esmaltadoSemipermanente.nameService} (${esmaltadoSemipermanente.durationMinutes} min) | Valor: $${esmaltadoSemipermanente.price}.- \n2. ${kappingGel.nameService} (${kappingGel.durationMinutes} min) | Valor: $${kappingGel.price}.-`))
                 
                 switch (service){
-                    case "1":
+                    case 1:
                         deposit = esmaltadoSemipermanente.deposit
                         break
-                    case "2":
+                    case 2:
                         deposit = kappingGel.deposit
                         break
                 }
