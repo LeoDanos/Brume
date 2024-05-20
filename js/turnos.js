@@ -11,6 +11,10 @@ class Professional {
 let Xoana = new Professional ("Xoana", "Cosmetologia")
 let Erica = new Professional ("Erica", "Manicuria")
 
+const profesionales = [Xoana, Erica]
+
+const nombresProfesionales = profesionales.map( (x) => x.nameProfessional) // Excusa para usarlo para elegir la profesional por nombre en vez de por N° como en la 1ra Preentrega
+
 // SERVICIOS
 
 class Service {
@@ -28,13 +32,21 @@ class Service {
 let limpiezaFacialProfunda = new Service ("Cosmetologia", "Limpieza Facial Profunda", 90, 16600)
 let limpiezaProfundaEspalda = new Service ("Cosmetologia", "Limpieza Profunda de Espalda", 90, 18300)
 let dermaplaning = new Service ("Cosmetologia", "Dermaplaning", 90, 17800)
-let HifuMiniRF = new Service ("Cosmetologia", "Hifu Mini + Radio Frecuencia", 90, 18800)
+let hifuMiniRF = new Service ("Cosmetologia", "Hifu Mini + Radio Frecuencia", 90, 18800)
 let mesoterapiaVirtual = new Service ("Cosmetologia", "Mesoterapia Virtual (Antiage)", 90, 17300)
 let peeling = new Service ("Cosmetologia", "Peeling", 90, 17800)
 let hydraLips = new Service ("Cosmetologia", "Hydra Lips", 90, 15600)
 let microneedlingDermapen = new Service ("Cosmetologia", "Microneedling con Dermapen", 90, 21800)
 let liftingPestanias = new Service ("Cosmetologia", "Lifting de Pestañas", 60, 14800)
 let laminadoCejas = new Service ("Cosmetologia", "Laminado de Cejas", 60, 13900)
+
+const serviciosCosmetologia = [limpiezaFacialProfunda,dermaplaning,liftingPestanias]
+
+const serviciosCosmetologiaAll = [limpiezaFacialProfunda,limpiezaProfundaEspalda,dermaplaning,hifuMiniRF,mesoterapiaVirtual,peeling,hydraLips,microneedlingDermapen,liftingPestanias,laminadoCejas]
+
+// Filtrado por Duracion: podria servir para filtrar servicios dependiendo la disponibilidad de la agenda, se puede probar desde consola indicando 60 o 90, podria usarse >= en un futuro...
+
+function cosmetologiaMin (min) { console.table( serviciosCosmetologiaAll.filter ( (x) => x.durationMinutes === min ) )}
 
 // SERVICIOS DE MANICURIA
 
@@ -43,6 +55,7 @@ let kappingGel = new Service ("Manicuria", "Kapping Gel", 90, 6000)
 let kappingAcrilico = new Service ("Manicuria", "Kapping Acrilico", 90, 7000)
 let esculpidasAcrilico = new Service ("Manicuria", "Esculpidas en Acrilico", 90, 8000)
 
+const serviciosManicuria = [esmaltadoSemipermanente,kappingGel]
 
 function gracias(){
     alert ("Gracias vuelva pronto")
@@ -50,6 +63,8 @@ function gracias(){
 function incorrecta(){
     alert ("Ingresó una opción incorrecta")
 }
+
+let button = document.getElementById("buttonTurno")
 
 // LOGIN
 function login(){
@@ -119,8 +134,7 @@ function login(){
     } while (id)
 } 
 
-//login()
-//reserva()
+button.addEventListener("click",login)
 
 // RESERVA
 
@@ -128,19 +142,29 @@ function reserva() {
     id = true
 
     do {
-    let serviceCategory = parseInt (prompt ("Ingrese el N° de la profesional con la que desea atenderse:\n" + `1. ${Xoana.nameProfessional} (${Xoana.category}) \n2. ${Erica.nameProfessional} (${Erica.category})`))
+
+    let serviceCategory = prompt ("Ingrese el Nombre de la profesional con la que desea atenderse:\n" + `1. ${nombresProfesionales[0]} (${Xoana.category}) \n2. ${nombresProfesionales[1]} (${Erica.category})`)    
+    
+    // Cambie el ingreso de una opción numerica por la del nombre de la profesional, para tener la excusa de usar un .find
+
     let agendar = false
     let deposit = ""
 
     if (serviceCategory === null) {
         gracias()
         break
+    } 
+
+    const serviceCategoryPrompt = profesionales.find( (x) => x.nameProfessional.toLowerCase() === serviceCategory.toLowerCase() )
+
+    if (serviceCategoryPrompt == undefined ) {
+        incorrecta()
     }
     
-    else if (serviceCategory == 1) {
+    else if (serviceCategoryPrompt.nameProfessional == nombresProfesionales[0]) {
         do {
         
-        let service = parseInt (prompt ("Ingrese el N° de tratamiento que desea realizar :\n" + `1. ${limpiezaFacialProfunda.nameService} (${limpiezaFacialProfunda.durationMinutes} min) | Valor: $${limpiezaFacialProfunda.price}.- \n2. ${dermaplaning.nameService} (${dermaplaning.durationMinutes} min) | Valor: $${dermaplaning.price}.- \n3. ${liftingPestanias.nameService} (${liftingPestanias.durationMinutes} min) | Valor: $${liftingPestanias.price}.-`))
+        let service = parseInt (prompt ("Ingrese el N° de tratamiento que desea realizar :\n" + `1. ${serviciosCosmetologia[0].nameService} (${serviciosCosmetologia[0].durationMinutes} min) | Valor: $${serviciosCosmetologia[0].price}.- \n2. ${serviciosCosmetologia[1].nameService} (${serviciosCosmetologia[1].durationMinutes} min) | Valor: $${serviciosCosmetologia[1].price}.- \n3. ${serviciosCosmetologia[2].nameService} (${serviciosCosmetologia[2].durationMinutes} min) | Valor: $${serviciosCosmetologia[2].price}.-`))
             
             switch (service){
                 case 1:
@@ -169,10 +193,10 @@ function reserva() {
         
         } while (id)
     }
-    else if (serviceCategory == 2) {
+    else if (serviceCategoryPrompt.nameProfessional == nombresProfesionales[1]) {
         do {
         
-            let service = parseInt (prompt ("Ingrese el N° de tratamiento que desea realizar :\n" + `1. ${esmaltadoSemipermanente.nameService} (${esmaltadoSemipermanente.durationMinutes} min) | Valor: $${esmaltadoSemipermanente.price}.- \n2. ${kappingGel.nameService} (${kappingGel.durationMinutes} min) | Valor: $${kappingGel.price}.-`))
+            let service = parseInt (prompt ("Ingrese el N° de tratamiento que desea realizar :\n" + `1. ${serviciosManicuria[0].nameService} (${serviciosManicuria[0].durationMinutes} min) | Valor: $${serviciosManicuria[0].price}.- \n2. ${serviciosManicuria[1].nameService} (${serviciosManicuria[1].durationMinutes} min) | Valor: $${serviciosManicuria[1].price}.-`))
                 
                 switch (service){
                     case 1:
