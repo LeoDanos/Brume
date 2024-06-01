@@ -675,6 +675,10 @@ html {
 }
 
 /* TURNOS */
+#servicios, #tratamientos {
+  text-align: left;
+}
+
 .agenda {
   padding: 20px 10%;
   display: flex;
@@ -689,6 +693,10 @@ html {
 }
 .turnos h5, .turnos p {
   text-align: left;
+}
+
+.fecha {
+  display: flex;
 }
 
 .theme-dark .agenda {
@@ -874,8 +882,22 @@ html {
   grid-template-areas: "mesLeft julio julio julio julio julio mesRight" "d1 d2 d3 d4 d5 d6 d7" "f1 f2 f3 f4 f5 f6 f7" "f8 f9 f10 f11 f12 f13 f14" "f15 f16 f17 f18 f19 f20 f21" "f22 f23 f24 f25 f26 f27 f28" "f29 f30 f31 . . . .";
 }
 
-.f10 {
+/* .f10 {
   background-color: green;
+} */
+#horariosDisponibles p {
+  transition: 0.5s;
+}
+#horariosDisponibles p:hover {
+  filter: drop-shadow(0 0 6px rgb(150, 150, 150));
+}
+
+.fondoVerde {
+  background-color: green;
+}
+
+.fondoRojo {
+  background-color: red;
 }
 
 .boxCal div {
