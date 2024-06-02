@@ -58,6 +58,31 @@ const serviciosManicuria = [esmaltadoSemipermanente, kappingGel, kappingAcrilico
 
 const listaServicios = serviciosCosmetologia.concat(serviciosManicuria);
 
+// CONSTRUCCION DEL CALENDARIO
+// Lo habia hecho a mano en el HTML numero por numero, despues se me ocurrio hacerlo asi para que no quede tan largo
+
+function crearElemento(tag, clase, contenido) {
+    var elemento = document.createElement(tag);
+    elemento.className = clase;
+    elemento.innerHTML = contenido;
+    return elemento;
+}
+
+var diasSemana = ['LUN', 'MAR', 'MIE', 'JUE', 'VIE', 'SAB', 'DOM'];
+var gridCalendario = document.querySelector('.gridCalendario');
+
+// Días de la semana
+for (var i = 0; i < diasSemana.length; i++) {
+    var dia = crearElemento('article', 'semana d' + (i + 1), '<div><h5>' + diasSemana[i] + '</h5></div>');
+    gridCalendario.appendChild(dia);
+}
+
+// Días del mes
+for (var j = 1; j <= 31; j++) {
+    var diaMes = crearElemento('article', 'box boxCal f' + j, '<div><h5>' + j + '</h5></div>');
+    gridCalendario.appendChild(diaMes);
+}
+
 // 3RA PREENTREGA
 
 document.addEventListener('DOMContentLoaded', () => {
