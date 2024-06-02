@@ -709,7 +709,7 @@ html {
     gap: 40px 0;
   }
   .gridCalendario {
-    width: 96% !important;
+    width: 100% !important;
   }
   .turnos {
     width: calc(96% + 12px);
