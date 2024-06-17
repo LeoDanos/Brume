@@ -4,6 +4,10 @@
   text-align: left;
  }
 
+ #tratamientos select {
+  max-width: 100%;
+ }
+
  .agenda {
   padding: $brumePadding;
   display: flex;

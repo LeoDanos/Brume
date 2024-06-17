@@ -679,6 +679,10 @@ html {
   text-align: left;
 }
 
+#tratamientos select {
+  max-width: 100%;
+}
+
 .agenda {
   padding: 20px 10%;
   display: flex;
