@@ -59,7 +59,7 @@ const serviciosManicuria = [esmaltadoSemipermanente, kappingGel, kappingAcrilico
 const listaServicios = serviciosCosmetologia.concat(serviciosManicuria);
 
 // CONSTRUCCION DEL CALENDARIO
-// Lo habia hecho a mano en el HTML numero por numero, despues se me ocurrio hacerlo asi para que no quede tan largo
+// Lo habia hecho a mano en el HTML numero por numero, despues se me ocurrio inyectarlo dinamicamente desde aca con FOR para que no quede tan largo el file
 
 function crearElemento(tag, clase, contenido) {
     const elemento = document.createElement(tag);
@@ -71,19 +71,28 @@ function crearElemento(tag, clase, contenido) {
 const diasSemana = ['LUN', 'MAR', 'MIE', 'JUE', 'VIE', 'SAB', 'DOM'];
 const gridCalendario = document.querySelector('.gridCalendario');
 
-// Días de la semana
+// Dias de la semana
 for (let i = 0; i < diasSemana.length; i++) {
     let dia = crearElemento('article', 'semana d' + (i + 1), '<div><h5>' + diasSemana[i] + '</h5></div>');
     gridCalendario.appendChild(dia);
 }
 
-// Días del mes
+// Dias del mes
 for (let j = 1; j <= 31; j++) {
     let diaMes = crearElemento('article', 'box boxCal f' + j, '<div><h5>' + j + '</h5></div>');
     gridCalendario.appendChild(diaMes);
 }
 
-// 3RA PREENTREGA
+// RESERVA
+
+function HabilitarReserva (){
+    document.getElementById("login").style.display="none";
+    document.getElementById("reserva").style.display="block";
+}
+
+document.getElementById("reserva").style.display="none";
+
+document.getElementById("servicios").innerHTML = 'Bienvenido usuario <b>Invitado</b> <br> <br>Seleccione tipo de Servicio: <br>';
 
 document.addEventListener('DOMContentLoaded', () => {
     const servicios = document.getElementById('servicios');
@@ -145,10 +154,28 @@ function mostrarTratamientos(servicio) {
         }
     });
 
-    // Limpiar horarios disponibles cuando se selecciona otro tipo de servicio
+    // Limpiar los horarios disponibles cuando selecciono otro tipo de servicio
     document.getElementById("horariosDisponibles").innerHTML = '';
     document.getElementById("fechaSeleccionada").textContent = '';
 }
+
+
+// FETCH
+// cargo algunos turnos ya reservados desde un .json
+
+async function cargarTurnosOcupados() {
+    fetch('../JSON/horarios_ocupados.json')
+    .then(response => response.json())
+    .then(data => {
+        localStorage.setItem('horariosOcupados', JSON.stringify(data));
+    })
+    .catch(error => {
+        console.error('Error al cargar el archivo JSON:', error);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', cargarTurnosOcupados);
+
 
 function marcarDiasDisponibles(tratamiento, servicio) {
     const diasDisponibles = document.querySelectorAll('.boxCal');
@@ -158,17 +185,28 @@ function marcarDiasDisponibles(tratamiento, servicio) {
         dia.classList.remove('disponible', 'fondoVerde', 'fondoRojo');
     });
 
-    let dias = servicio === "cosmetologia" ? [8] : servicio === "manicuria" ? [19] : [];
-
+    let dias = servicio === "cosmetologia" ? [8, 12] : servicio === "manicuria" ? [19] : [];
 
     dias.forEach(dia => {
         const diaElement = document.querySelector(`.f${dia}`);
         diaElement.classList.add('disponible');
-        const horarios = servicio === "cosmetologia" ? ["10:30", "14:00"] : ["09:00", "13:00", "15:00"];
-        const horariosOcupados = JSON.parse(localStorage.getItem('horariosOcupados')) || [];
-        const horariosDisponibles = horarios.filter(horario => !horariosOcupados.includes(horario));
 
-        horariosDisponibles.length > 0 ? diaElement.classList.add('fondoVerde') : diaElement.classList.add('fondoRojo');
+        let horarios;
+        if (servicio === "cosmetologia") {
+            horarios = dia === 8 ? ["10:30", "14:00"] : dia === 12 ? ["11:00", "15:00"] : [];
+        } else if (servicio === "manicuria") {
+            horarios = ["09:00", "13:00", "15:00"];
+        }
+
+        const horariosOcupados = JSON.parse(localStorage.getItem('horariosOcupados')) || {};
+        const horariosOcupadosDelDia = (horariosOcupados[dia] && horariosOcupados[dia][servicio]) || [];
+        const horariosDisponibles = horarios.filter(horario => !horariosOcupadosDelDia.includes(horario));
+
+        if (horariosDisponibles.length > 0) {
+            diaElement.classList.add('fondoVerde');
+        } else {
+            diaElement.classList.add('fondoRojo');
+        }
     });
 
     diasDisponibles.forEach(dia => {
@@ -181,39 +219,45 @@ function marcarDiasDisponibles(tratamiento, servicio) {
 }
 
 function mostrarHorarios(dia, servicio) {
-    const fechaTexto = dia.classList.contains('f8') ? "Lunes 8 de Julio" : dia.classList.contains('f19') ? "Viernes 19 de Julio" : "";
+    const fechaTexto = dia.classList.contains('f8') ? "Lunes 8 de Julio" : dia.classList.contains('f12') ? "Viernes 12 de Julio" : dia.classList.contains('f19') ? "Viernes 19 de Julio" : "";
     document.getElementById("fechaSeleccionada").textContent = fechaTexto;
 
-    const horariosDisponibles = document.getElementById("horariosDisponibles");
-    horariosDisponibles.innerHTML = '';
+    const horariosDisponiblesDiv = document.getElementById("horariosDisponibles");
+    horariosDisponiblesDiv.innerHTML = '';
     let horarios = [];
 
-    if (servicio === "cosmetologia" && dia.classList.contains('f8')) {
-        horarios = ["10:30", "14:00"];
+    if (servicio === "cosmetologia") {
+        if (dia.classList.contains('f8')) {
+            horarios = ["10:30", "14:00"];
+        } else if (dia.classList.contains('f12')) {
+            horarios = ["11:00", "15:00"];
+        }
     } else if (servicio === "manicuria" && dia.classList.contains('f19')) {
         horarios = ["09:00", "13:00", "15:00"];
     }
 
-    const horariosOcupados = JSON.parse(localStorage.getItem('horariosOcupados')) || [];
+    const horariosOcupados = JSON.parse(localStorage.getItem('horariosOcupados')) || {};
+    const diaNumero = parseInt(dia.className.match(/f(\d+)/)[1], 10);
+    const horariosOcupadosDelDia = (horariosOcupados[diaNumero] && horariosOcupados[diaNumero][servicio]) || [];
 
     horarios.forEach(horario => {
         const p = document.createElement('p');
         p.textContent = horario;
         p.classList.add('horario-disponible');
 
-        if (horariosOcupados.includes(horario)) {
+        if (horariosOcupadosDelDia.includes(horario)) {
             p.classList.add('ocupado');
             p.style.textDecoration = "line-through";
             p.style.color = "red";
         }
 
-        horariosDisponibles.appendChild(p);
+        horariosDisponiblesDiv.appendChild(p);
 
         p.addEventListener('click', () => {
             if (p.classList.contains('ocupado')) {
                 return;
             }
-            confirmarTurno(p, horario);
+            confirmarTurno(p, horario, diaNumero, servicio);
         });
     });
 }
@@ -226,9 +270,7 @@ function obtenerTratamientoSeleccionado() {
     return listaServicios.find(tratamiento => tratamiento.nameService === tratamientoSeleccionado);
 }
 
-// CONFIRMACION DEL TURNO
-
-function confirmarTurno(elementoHorario, horario) {
+function confirmarTurno(elementoHorario, horario, dia, servicio) {
     Swal.fire({
         title: 'Confirmar Turno',
         html: `¿Desea reservar el turno del <b>${document.getElementById("fechaSeleccionada").textContent}</b> a las <b>${horario}hs</b> para <b>${obtenerTratamientoSeleccionado().nameService}</b>? <br> Deberá abonar una seña de <b>$${obtenerTratamientoSeleccionado().deposit}.-</b>?`,
@@ -247,11 +289,11 @@ function confirmarTurno(elementoHorario, horario) {
                 icon: 'success'
             });
             marcarHorarioOcupado(elementoHorario);
-            guardarHorarioOcupado(horario);
+            guardarHorarioOcupado(horario, dia, servicio);
+            marcarDiasDisponibles(obtenerTratamientoSeleccionado(), servicio);
         }
     });
 }
-
 
 function marcarHorarioOcupado(elementoHorario) {
     elementoHorario.style.textDecoration = "line-through";
@@ -259,8 +301,110 @@ function marcarHorarioOcupado(elementoHorario) {
     elementoHorario.classList.add('ocupado');
 }
 
-function guardarHorarioOcupado(horario) {
-    const horariosOcupados = JSON.parse(localStorage.getItem('horariosOcupados')) || [];
-    horariosOcupados.push(horario);
+function guardarHorarioOcupado(horario, dia, servicio) {
+    const horariosOcupados = JSON.parse(localStorage.getItem('horariosOcupados')) || {};
+    if (!horariosOcupados[dia]) {
+        horariosOcupados[dia] = {};
+    }
+    if (!horariosOcupados[dia][servicio]) {
+        horariosOcupados[dia][servicio] = [];
+    }
+    horariosOcupados[dia][servicio].push(horario);
     localStorage.setItem('horariosOcupados', JSON.stringify(horariosOcupados));
 }
+
+//LOGIN C/ SWEETALERT2
+//Es una recreacion de parte de la primera entrega pero con SweetAlert2, el ingreso exitoso llama a la funcion HabilitarReserva() que muestra la seleccion de turnos y a la vez oculta el boton de Login cambiando la propiedad Display en c/u
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const userId = "invitado";
+    const passId = "123456";
+    let attempts = 1;
+
+    
+    function login() {
+        Swal.fire({
+            title: 'Ingrese su nombre de usuario',
+            input: 'text',
+            inputPlaceholder: `Usuario | Intentos: ${attempts}/3`,
+            showCancelButton: true,
+            confirmButtonText: 'Ingresar',
+            cancelButtonText: 'Cancelar',
+            showLoaderOnConfirm: true,
+            icon: 'question',
+
+            preConfirm: (user) => {
+                if (!user) {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Ingreso cancelado',
+                        html: '¡Gracias por visitarnos!',
+                        color: '#c0c0c0',
+                    });
+                    return false;
+                }
+                user = user.toLowerCase();
+
+                if (user === userId && attempts <= 3) {
+                    attempts = 1;
+
+                    Swal.fire({
+                        title: `Bienvenido usuario ${userId}`,
+                        input: 'password',
+                        inputPlaceholder: `Contraseña | Intentos: ${attempts}/3`,
+                        showCancelButton: true,
+                        confirmButtonText: 'Ingresar',
+                        cancelButtonText: 'Cancelar',
+                        showLoaderOnConfirm: true,
+                        icon: 'question',
+                        preConfirm: (pass) => {
+                            if (!pass) {
+                                Swal.fire({
+                                    icon: 'info',
+                                    title: 'Ingreso cancelado',
+                                    text: '¡Gracias por visitarnos!',
+                                    color: '#c0c0c0'
+                                });
+                                return false;
+                            }
+
+                            if (pass === passId && attempts <= 3) {
+                                attempts = 1;
+                                HabilitarReserva();
+                            } else {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'Contraseña incorrecta',
+                                    text: 'La contraseña ingresada es incorrecta',
+                                    color: '#c0c0c0'
+                                });
+                                attempts++;
+                            }
+                        }
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Usuario incorrecto',
+                        text: 'El usuario ingresado no existe',
+                        color: '#c0c0c0'
+                    });
+                    attempts++;
+                }
+
+                if (attempts > 3) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Demasiados intentos',
+                        html: 'Usted superó la cantidad de intentos permitidos. <br> Intente nuevamente más tarde.',
+                        color: '#c0c0c0'
+                    });
+                    return false;
+                }
+            }
+        });
+    }
+
+    document.getElementById('btnLogin').addEventListener('click', login);
+});
