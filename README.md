@@ -33,7 +33,8 @@ Actualmente estoy experimentando el Landscaping en **Unreal Engine**, me anoté 
 Por lo que me voy a tomar un respiro de código, y retomaré dentro de algunos meses con **Reac JS**
 
 Aun no me termino de decidir a donde apuntar mi carrera profesional, se que debo enfocarme en algo y ser bueno en eso, entiendo el código, me gusta la programación, pero el diseño de videojuegos me apasiona!
-Mientras tanto siempre trato de mejorar y de seguir capacitándome.
+
+Mientras tanto siempre trato de mejorar y seguir capacitándome.
 ## 🔗 Links
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/leonardodanos/)
 [![sketchfab](https://img.shields.io/badge/sketchfab-%231CAAD9.svg?&style=for-the-badge&logo=sketchfab&logoColor=white)](https://sketchfab.com/leodanos)
