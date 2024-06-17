@@ -164,7 +164,7 @@ function mostrarTratamientos(servicio) {
 // cargo algunos turnos ya reservados desde un .json
 
 async function cargarTurnosOcupados() {
-    fetch('../JSON/horarios_ocupados.json')
+    fetch('../json/horarios_ocupados.json')
     .then(response => response.json())
     .then(data => {
         localStorage.setItem('horariosOcupados', JSON.stringify(data));
